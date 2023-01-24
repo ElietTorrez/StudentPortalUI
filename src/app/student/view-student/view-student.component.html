@@ -1,0 +1,87 @@
+<div class="container">
+  <h1>Detalle Estudiante</h1>
+</div>
+<div class="container">
+  <div class="row end-xs - mt-1">
+    <div class="col-xs-12">
+      <button mat-fab color="warn" aria-label="" [routerLink]="['/student']">
+           Volver
+      </button>
+  </div>
+  </div>
+
+<div class="row">
+<div class="col-xs-6">
+  <form #studen="ngForm">
+<div class="row">
+  <div class="col-xs-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Primer Nombre</mat-label>
+      <input matInput type="text" [(ngModel)]="student.firstName" name="firstName">
+    </mat-form-field>
+  </div>
+
+<div class="col-xs-6">
+  <mat-form-field appearance="fill" mt-2>
+    <mat-label>Segundo Nombre</mat-label>
+    <input matInput type="text"  [(ngModel)]="student.lastName" name="lastName">
+  </mat-form-field>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="student.dateOfBirth" name="dateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  </div>
+
+  <div class="col-xs-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Correo</mat-label>
+      <input matInput type="text" [(ngModel)]="student.email" name="email">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-xs-6">
+  <mat-form-field appearance="fill" mt-2>
+    <mat-label>Movil</mat-label>
+    <input matInput type="number" [(ngModel)]="student.mobile" name="mobile" >
+  </mat-form-field>
+</div>
+<div class="col-xs-6">
+  <mat-form-field appearance="fill">
+    <mat-label>Genero</mat-label>
+    <input matInput type="text" [(ngModel)]="student.gender.description" name="gender">
+  </mat-form-field>
+</div>
+</div>
+
+
+<div class="row">
+
+
+<div class="col-xs-6">
+  <mat-form-field appearance="fill" mt-2>
+    <mat-label>Dirección</mat-label>
+   <textarea matInput rows="5" [(ngModel)]="student.address.physicalAddress" name="physicalAddress"></textarea>
+  </mat-form-field>
+</div>
+<div class="col-xs-6">
+  <mat-form-field appearance="fill" mt-2>
+    <mat-label>Codigo Postal</mat-label>
+   <textarea matInput rows="5" [(ngModel)]="student.address.postalAddress" name="postalAddress"></textarea>
+  </mat-form-field>
+</div>
+</div>
+  </form>
+</div>
+</div>
+
+</div>
+

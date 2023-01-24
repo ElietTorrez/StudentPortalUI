@@ -1,0 +1,71 @@
+<h1>Listado Estudiantes</h1>
+<div class="container">
+<div class="tabla">
+
+  <div class="container">
+<div class="row end-xs - mt-1">
+  <div class="col-xs-12">
+<input type="text" class="search input" placeholder="Buscar estudiante"
+[(ngModel)]="filterName"
+(keyup)="filterStudents()"
+>
+  </div>
+</div>
+  </div>
+<table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Apellido </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Correo </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateOfBirth">
+    <th mat-header-cell *matHeaderCellDef> Nacimiento </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date:'dd-MM-yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> Genero </th>
+    <td mat-cell *matCellDef="let element"> {{element.gender.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="physicalAddress">
+    <th mat-header-cell *matHeaderCellDef> Direccion </th>
+    <td mat-cell *matCellDef="let element"> {{element.address.physicalAddress}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <a [routerLink]="['/student',element.id]" >
+        <mat-icon color="primary">editar</mat-icon>
+      </a>
+ 
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+</div>
+</div>
