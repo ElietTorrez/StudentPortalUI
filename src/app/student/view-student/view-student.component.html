@@ -57,7 +57,13 @@
 <div class="col-xs-6">
   <mat-form-field appearance="fill">
     <mat-label>Genero</mat-label>
-    <input matInput type="text" [(ngModel)]="student.gender.description" name="gender">
+    <!-- <input matInput type="text" [(ngModel)]="student.gender.description" name="gender"> -->
+    <mat-select  [(ngModel)]="student.genderId" name="gender">
+      <mat-option *ngFor="let item of gender" [value]="item.id">
+      {{item.description}}
+      </mat-option>
+
+    </mat-select>
   </mat-form-field>
 </div>
 </div>

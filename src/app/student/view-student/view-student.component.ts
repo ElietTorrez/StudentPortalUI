@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../student.service';
 import { Student } from '../../models/student.model';
+import { Gender } from '../../models/gender.model';
 
 @Component({
   selector: 'app-view-student',
@@ -30,6 +31,7 @@ student: Student ={
     postalAddress:''
   }
 }
+gender: Gender[]=[];
 
   constructor(private readonly studentService:StudentService,
     private readonly route: ActivatedRoute) { }
@@ -37,19 +39,26 @@ student: Student ={
   ngOnInit(): void {
 this.route.paramMap.subscribe(
   (params)=>{
-    console.log(params)
    this.studentId= params.get('id');
 
    if (this.studentId){
    this.studentService.getStudent( this.studentId).subscribe(
     (response)=>{
       this.student=response;
-      console.log(this.student)
+
     }
 
-   );
-  }
-  }
+   );}
+
+   this.studentService.getGender( ).subscribe(
+    (response)=>{
+      this.gender=response;
+
+    }
+
+    );}
+
+
 )
 
 
