@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Detalle Estudiante</h1>
+  <h1>{{header}}</h1>
 </div>
 <div class="container">
   <div class="row end-xs - mt-1">
@@ -13,8 +13,27 @@
 <div class="row">
 <div class="col-xs-6">
   <form #studen="ngForm">
+
+
+    <!-- <div class="col-xs-6">
+      <div class="row center-xs">
+        <div class="image-container">
+          <img [src]="displayImage">
+
+        </div>
+
+      </div>
+      </div> -->
+
+      <div class="row">
+        <img [src]=displayImage>
+         </div>
+         <input (change)="capturarFile($event)" type="file" class="file-upload-img" accept=".jpg, .png"
+         name="archivo">
+
 <div class="row">
   <div class="col-xs-6">
+
     <mat-form-field appearance="fill">
       <mat-label>Primer Nombre</mat-label>
       <input matInput type="text" [(ngModel)]="student.firstName" name="firstName">
@@ -85,9 +104,17 @@
   </mat-form-field>
 </div>
 </div>
+
+<div class="row">
+<div class="col-xs-12" *ngIf="!isNew">
+<button mat-raised-button color="primary" (click)="actualizar()" >Actualizar</button>
+</div>
+<div class="col-xs-12"  *ngIf="isNew">
+  <button mat-raised-button color="primary" (click)="nuevo()">Agregar</button>
+  </div>
+</div>
   </form>
 </div>
 </div>
-
 </div>
 

@@ -6,11 +6,12 @@
 <div class="row end-xs - mt-1">
   <div class="col-xs-12">
 <input type="text" class="search input" placeholder="Buscar estudiante"
-[(ngModel)]="filterName"
-(keyup)="filterStudents()"
->
-  </div>
+[(ngModel)]="filterName" (keyup)="filterStudents()" >
+<a routerLink="/student/add"  mat-raised-button color="primary">Nuevo</a>
 </div>
+</div>
+
+
   </div>
 <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -52,7 +53,7 @@
       <a [routerLink]="['/student',element.id]" >
         <mat-icon color="primary">editar</mat-icon>
       </a>
- 
+
     </td>
   </ng-container>
 
